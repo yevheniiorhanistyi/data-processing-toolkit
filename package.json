@@ -1,0 +1,24 @@
+{
+  "name": "data-processing-toolkit",
+  "version": "1.0.0",
+  "description": "Interactive CLI toolkit for file navigation and data processing using Node.js streams",
+  "main": "src/main.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/main.js"
+  },
+  "engines": {
+    "node": ">=24.10.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yevheniiorhanistyi/data-processing-toolkit.git"
+  },
+  "keywords": [],
+  "author": "Yevhenii Orhanistyi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yevheniiorhanistyi/data-processing-toolkit/issues"
+  },
+  "homepage": "https://github.com/yevheniiorhanistyi/data-processing-toolkit#readme"
+}
