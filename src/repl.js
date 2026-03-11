@@ -57,7 +57,7 @@ export function startRepl(currentDir) {
     rl.prompt();
   });
 
-  process.on("SIGINT", () => {
+  rl.on("SIGINT", () => {
     console.log("\nThank you for using Data Processing CLI!");
     rl.close();
   });
