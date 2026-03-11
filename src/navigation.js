@@ -1,6 +1,8 @@
 import * as fs from "node:fs/promises";
 import * as path from "node:path";
 
+import { resolvePath } from "./utils/pathResolver.js";
+
 export const handleLs = async (currentDir) => {
   const items = await fs.readdir(currentDir);
 
@@ -36,7 +38,7 @@ export const handleCd = async (currentDir, args) => {
     return;
   }
   const targetDir = args.join(" ");
-  const newPath = path.resolve(currentDir, targetDir);
+  const newPath = resolvePath(currentDir, targetDir);
 
   try {
     const stat = await fs.stat(newPath);
