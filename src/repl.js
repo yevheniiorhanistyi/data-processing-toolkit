@@ -1,7 +1,14 @@
 import readline from "readline";
+import { handleLs, handleCd, handleUp } from "./navigation.js";
 
 export function startRepl(currentDir) {
   let cwd = currentDir;
+
+  const commands = {
+    ls: handleLs,
+    cd: handleCd,
+    up: handleUp,
+  };
 
   const rl = readline.createInterface({
     input: process.stdin,
@@ -11,16 +18,42 @@ export function startRepl(currentDir) {
 
   rl.prompt();
 
-  rl.on("line", (line) => {
-    const command = line.trim();
+  rl.on("line", async (line) => {
+    const input = line.trim();
 
-    if (command === ".exit") {
+    if (!input) {
+      rl.prompt();
+      return;
+    }
+
+    const parts = input.split(/\s+/);
+
+    const cmd = parts[0];
+    const args = parts.slice(1);
+
+    if (cmd === ".exit") {
       console.log("Thank you for using Data Processing CLI!");
       rl.close();
       return;
     }
 
-    console.log("Command received:", command);
+    const command = commands[cmd];
+
+    if (!command) {
+      console.log("Invalid input");
+      rl.prompt();
+      return;
+    }
+
+    try {
+      const newCwd = await command(cwd, args);
+      if (newCwd) cwd = newCwd;
+
+      console.log(`You are currently in ${cwd}`);
+    } catch {
+      console.log("Operation failed");
+    }
+
     rl.prompt();
   });
 
