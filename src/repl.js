@@ -1,5 +1,6 @@
 import readline from "readline";
 import { handleLs, handleCd, handleUp } from "./navigation.js";
+import { csvToJson } from "./commands/csvToJson.js";
 
 export function startRepl(currentDir) {
   let cwd = currentDir;
@@ -8,6 +9,7 @@ export function startRepl(currentDir) {
     ls: handleLs,
     cd: handleCd,
     up: handleUp,
+    "csv-to-json": csvToJson,
   };
 
   const rl = readline.createInterface({
