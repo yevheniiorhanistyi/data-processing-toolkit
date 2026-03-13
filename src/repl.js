@@ -4,6 +4,7 @@ import { csvToJson } from "./commands/csvToJson.js";
 import { jsonToCsv } from "./commands/jsonToCsv.js";
 import { count } from "./commands/count.js";
 import { hash } from "./commands/hash.js";
+import { hashCompare } from "./commands/hashCompare.js";
 
 export function startRepl(currentDir) {
   let cwd = currentDir;
@@ -12,10 +13,11 @@ export function startRepl(currentDir) {
     ls: handleLs,
     cd: handleCd,
     up: handleUp,
-    "csv-to-json": csvToJson,
-    "json-to-csv": jsonToCsv,
     count: count,
     hash: hash,
+    "csv-to-json": csvToJson,
+    "json-to-csv": jsonToCsv,
+    "hash-compare": hashCompare,
   };
 
   const rl = readline.createInterface({
