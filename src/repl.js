@@ -3,6 +3,7 @@ import { handleLs, handleCd, handleUp } from "./navigation.js";
 import { csvToJson } from "./commands/csvToJson.js";
 import { jsonToCsv } from "./commands/jsonToCsv.js";
 import { count } from "./commands/count.js";
+import { hash } from "./commands/hash.js";
 
 export function startRepl(currentDir) {
   let cwd = currentDir;
@@ -14,6 +15,7 @@ export function startRepl(currentDir) {
     "csv-to-json": csvToJson,
     "json-to-csv": jsonToCsv,
     count: count,
+    hash: hash,
   };
 
   const rl = readline.createInterface({
