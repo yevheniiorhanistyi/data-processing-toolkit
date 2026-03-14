@@ -4,19 +4,7 @@ import { open, stat, writeFile } from "node:fs/promises";
 
 import { parseArgs } from "../utils/argParser.js";
 import { resolvePath } from "../utils/pathResolver.js";
-
-async function findNewline(handle, position, fileSize) {
-  const buffer = Buffer.alloc(1);
-  let currentPos = position;
-
-  while (currentPos < fileSize) {
-    await handle.read(buffer, 0, 1, currentPos);
-    if (buffer[0] === 10) return currentPos;
-    currentPos++;
-  }
-
-  return fileSize - 1;
-}
+import { findNewline } from "../utils/fileHelpers.js";
 
 export const logStats = async (currentDir, args) => {
   const { input, output } = parseArgs(args);
