@@ -7,6 +7,7 @@ import { hash } from "./commands/hash.js";
 import { hashCompare } from "./commands/hashCompare.js";
 import { encrypt } from "./commands/encrypt.js";
 import { decrypt } from "./commands/decrypt.js";
+import { logStats } from "./commands/logStats.js";
 
 export function startRepl(currentDir) {
   let cwd = currentDir;
@@ -22,6 +23,7 @@ export function startRepl(currentDir) {
     "csv-to-json": csvToJson,
     "json-to-csv": jsonToCsv,
     "hash-compare": hashCompare,
+    "log-stats": logStats,
   };
 
   const rl = readline.createInterface({
