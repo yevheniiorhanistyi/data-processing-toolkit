@@ -6,6 +6,7 @@ import { count } from "./commands/count.js";
 import { hash } from "./commands/hash.js";
 import { hashCompare } from "./commands/hashCompare.js";
 import { encrypt } from "./commands/encrypt.js";
+import { decrypt } from "./commands/decrypt.js";
 
 export function startRepl(currentDir) {
   let cwd = currentDir;
@@ -17,6 +18,7 @@ export function startRepl(currentDir) {
     count: count,
     hash: hash,
     encrypt: encrypt,
+    decrypt: decrypt,
     "csv-to-json": csvToJson,
     "json-to-csv": jsonToCsv,
     "hash-compare": hashCompare,
